@@ -11,16 +11,16 @@ class Guitar
   attr_reader :brand, :wood, :color, :price
   attr_writer :brand, :wood, :color
 
-    def initialize(guitar_brand, guitar_wood, guitar_color, guitar_price)
-      @brand = guitar_brand
-      @wood = guitar_wood
-      @color = guitar_color
-      @price = guitar_price
+    def initialize(guitar_options)
+      @brand = guitar_options[:guitar_brand]
+      @wood = guitar_options[:guitar_wood]
+      @color = guitar_options[:guitar_color]
+      @price = guitar_options[:guitar_price]
     end
 
-    guitar_1 = Guitar.new("Taylor", "koa", "brown", 1300)
-    guitar_2 = Guitar.new("Martin", "mahagony", "light brown", 2500)
-    guitar_3 = Guitar.new("Fender", "maple", "dark blue", 700)
+    guitar_1 = Guitar.new({guitar_brand: "Taylor", guitar_wood: "koa", guitar_color: "brown", guitar_price: 1300})
+    guitar_2 = Guitar.new({guitar_brand: "Martin", guitar_wood: "mahagony", guitar_color: "light brown", guitar_price: 2500})
+    guitar_3 = Guitar.new({guitar_brand: "Fender", guitar_wood: "maple", guitar_color: "dark blue", guitar_price: 700})
 
     def print_info
       puts "This guitar is a #{@brand} with #{@color} #{@wood} wood and is #{@price} USD"
@@ -28,11 +28,15 @@ class Guitar
 
     guitar_1.print_info
 
+    puts guitar_1.brand
     puts guitar_2.brand
+    puts guitar_3.brand
 
     guitar_3.brand = "Ibanez"
     guitar_3.color = "black"
-    guitar_3.print_info
+
+    puts "The third guitar is now an " + guitar_3.brand + "."
+  
 
   end
 
