@@ -23,7 +23,7 @@ while true
     units = "metric"
     temp_name = "Celsius"
   end
-  response = HTTP.get("https://api.openweathermap.org/data/2.5/weather?q=#{input}&appid=756ea7de4e9a60716532f60191ce5e8a&units=#{units}")
+  response = HTTP.get("https://api.openweathermap.org/data/2.5/weather?q=#{input}&appid=___&units=#{units}")
   weather_data = response.parse
   temperature = weather_data["main"]["temp"]
   description = weather_data["weather"][0]["description"]
